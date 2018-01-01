@@ -1,0 +1,42 @@
+#cameron c
+#12-10
+#ISBN validation
+
+while True:
+    pre_isbn = input("Please enter ISBN number: ")
+
+    isbn = pre_isbn.replace('-', '')
+
+
+    if len(isbn) == 13: #validate len after removing '-'
+
+        total = 0
+
+        for char in isbn:#convert to int
+            char = int(char)
+
+
+        for index in range(0,len(isbn)): #sepeate odd/even index 
+            if int(isbn) % 2 == 0:
+                total = total + char
+            else:
+                total = total + char*3
+            
+                
+        #print('total',total)
+        checksum = 10 - (total % 10)
+       #print("total", total)
+        #print("sum",checksum)
+
+    else:
+        print("Length should be 13 characters")
+
+
+    if str(checksum) == isbn[-1]:
+        print(pre_isbn,"is a valid ISBN number")
+        print()
+    else:
+        print("Invalid ISBN number")
+        print()
+        
+
